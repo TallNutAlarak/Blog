@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: "老王的小窝",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -23,27 +23,30 @@ export default {
   ** Global CSS
   */
   css: [
+    '~assets/css/normailze.css',
     'element-ui/lib/theme-chalk/index.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/axios'
   ],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    // '@nuxtjs/eslint-module'
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy',
   ],
   /*
   ** Axios module configuration
@@ -61,5 +64,16 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  proxy:{
+    //   把/api开头的路由转发到后端
+      '/api':{
+        //   转发地址
+        target:'http://localhost:7001',
+        secure:false,
+        pathRewrite:{
+            '^/api':""
+        }
+      }
   }
 }

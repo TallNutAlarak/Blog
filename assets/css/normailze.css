@@ -1,0 +1,19 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+}
+html{
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica,
+        "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: rgba(246, 247, 248);
+    color: rgb(102, 102, 102);
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    }
+a{
+    color: rgb(102, 102, 102);
+}
