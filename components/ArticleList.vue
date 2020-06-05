@@ -6,7 +6,7 @@
             class="article-container"
         >
             <nuxt-link
-                :to="'/article/detial/'+item._id"
+                :to="'/article/'+item._id"
                 class="article-img"
             >
                 <img
@@ -17,7 +17,7 @@
             <div class="article-detail">
                 <div class="article-category">{{item.category}}</div>
                 <nuxt-link
-                    :to="'/article/detial/'+item._id"
+                    :to="'/article/'+item._id"
                     class="article-title"
                 >
                     <span>{{item.title}}</span>

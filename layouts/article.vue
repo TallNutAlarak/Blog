@@ -87,7 +87,13 @@
                 ></path>
             </svg>
         </div>
-        <nuxt class="main" />
+        <div class="main">
+            <nuxt class="left" />
+            <div class="right">
+                这里是侧边栏
+            </div>
+        </div>
+
     </div>
 </template>
 <script>
@@ -98,14 +104,14 @@ export default {
         window.onresize = () => {
             this.windowWidth = document.body.clientWidth;
         };
-        window.onscroll = ()=>{
-            let top = document.documentElement.scrollTop
-            if(top>400){
-                this.isBackIconShow = true
-            }else{
-                this.isBackIconShow = false
+        window.onscroll = () => {
+            let top = document.documentElement.scrollTop;
+            if (top > 400) {
+                this.isBackIconShow = true;
+            } else {
+                this.isBackIconShow = false;
             }
-        }
+        };
     },
     data() {
         return {
@@ -113,7 +119,7 @@ export default {
             windowWidth: "",
             isSearchShow: false,
             isNavShow: false,
-            isBackIconShow:false
+            isBackIconShow: false
         };
     },
     methods: {
@@ -140,7 +146,7 @@ export default {
                     clearInterval(interval);
                 }
             }, 15);
-        },
+        }
     }
 };
 </script>
@@ -175,7 +181,6 @@ export default {
                     width: 12rem;
                     vertical-align: bottom;
                 }
-
             }
 
             .nav {
@@ -209,11 +214,32 @@ export default {
         top: 0;
     }
 
+    .main {
+        padding-top: 5rem;
+        margin: 0 auto;
+
+        .left {
+            width: 69%;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.2rem;
+            float: left;
+        }
+
+        .right {
+            width: 29%;
+            float: right;
+        }
+    }
+
     /* 大屏幕（大桌面显示器，大于等于 1200px） */
     @media screen and (min-width: 1200px) {
         .header {
             width: 74rem;
             margin-left: -37rem;
+        }
+        .main{
+            width 74rem
         }
     }
 
@@ -223,6 +249,9 @@ export default {
             width: 56rem;
             margin-left: -28rem;
         }
+        .main{
+            width 56rem
+        }
     }
 
     // /* 小屏幕（平板，大于等于 768px） */
@@ -230,6 +259,9 @@ export default {
         .header {
             width: 46rem;
             margin-left: -23rem;
+        }
+        .main{
+            width 46rem
         }
     }
 }
@@ -253,7 +285,6 @@ export default {
                     width: 12rem;
                     vertical-align: bottom;
                 }
-
             }
 
             .menu {
@@ -290,11 +321,18 @@ export default {
             }
         }
     }
-}
 
-.main {
-    padding-top: 5rem;
-    width: 100%;
+    .main {
+        padding-top: 5rem;
+        width: 30rem;
+        margin: 0 auto;
+        .left{
+            width 100%
+        }
+        .right{
+            display none
+        }
+    }
 }
 
 .backToTop {
